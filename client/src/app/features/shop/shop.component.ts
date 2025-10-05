@@ -1,7 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { ShopService } from '../../core/services/shop.service';
 import { Product } from '../../shared/Models/product';
-import { MatCard } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { FiltersDialogComponent } from './filters-dialog/filters-dialog.component';
@@ -20,7 +19,6 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-shop',
   imports: [
-    MatCard,
     ProductItemComponent,
     MatButton,
     MatIcon,
@@ -29,8 +27,8 @@ import { FormsModule } from '@angular/forms';
     MatListOption,
     MatMenuTrigger,
     MatPaginator,
-    FormsModule,
-  ],
+    FormsModule
+],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss',
 })
