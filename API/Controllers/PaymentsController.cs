@@ -12,7 +12,7 @@ public class PaymentsController(IPaymentService paymentService, IGenericReposito
     public async Task<ActionResult<ShoppingCart>> CreateOrUpdatePaymentIntent(string cartId)
     {
         var cart = await paymentService.CreateorUpdatePaymentIntent(cartId);
-
+        Console.WriteLine($"Payment Intent created or updated for cart {cartId}: {cart?.ClientSecret}");
         if (cart == null) return BadRequest("Problem with your cart");
 
         return Ok(cart);
@@ -20,7 +20,7 @@ public class PaymentsController(IPaymentService paymentService, IGenericReposito
 
     }
 
-    [HttpGet("delivery-method")]
+    [HttpGet("delivery-methods")]
     public async Task<ActionResult<IReadOnlyList<DeliveryMethod>>> GetDeliveryMethods()
     {
 
